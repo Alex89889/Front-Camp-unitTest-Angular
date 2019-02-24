@@ -1,0 +1,59 @@
+
+
+
+<mat-sidenav-container class="example-container">
+	<mat-card class="example-card" >
+		<mat-card-header>
+			<h1>Add article</h1>
+			</mat-card-header>
+			<mat-card-content>
+				<form [formGroup]="myForm" novalidate (ngSubmit)="addNews()">
+                    <div class="form-group">
+                        <p>Headling</p>
+                        <input class="form-control" name="headling" formControlName="headling" />
+                         
+                        <div class="alert alert-danger"
+                            *ngIf="myForm.controls['headling'].invalid && myForm.controls['headling'].touched">
+                            The field must not be empty
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <p>Short description</p>
+                        <input class="form-control" name="shortDescription" formControlName="shortDescription" />
+                        <div class="alert alert-danger"
+                            *ngIf="myForm.controls['shortDescription'].invalid && myForm.controls['shortDescription'].touched">
+                            The field must not be empty
+                        </div>
+                    </div>
+					 <div class="form-group">
+                        <p>Content</p>
+						<textarea class="form-control" name="content" formControlName="content" ></textarea>
+                    </div>
+                    <!--<div class="form-group">
+                        <p>Image</p>
+						<input type='file' class="form-control" class="form-control" name="image" formControlName="image" >
+                    </div>-->
+					<div class="form-group">
+                        <p>Date</p>
+						<input class="form-control"class="form-control" name="date" formControlName="date" >
+                    </div>
+                    <div class="form-group">
+                        <p>Auhtor</p>
+						<input class="form-control" class="form-control" name="auhtor" formControlName="auhtor" >
+                    </div>
+                    <div class="form-group">
+						<mat-card-actions class="action-buttons">
+                        <button mat-button color="primary" [disabled]="myForm.invalid">
+                            Save
+                        </button>
+						</mat-card-actions>
+                    </div>
+            </form>
+    </mat-card-content>
+
+  </mat-card>
+<mat-toolbar color="primary">
+    <div >Powered by  <a href="https://newsapi.org" class="eco_color5">NEWS API</a> </div>
+</mat-toolbar>
+</mat-sidenav-container>
+

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  
+  <span class="example-spacer"></span>
+  
+  <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button>
+  
+</mat-toolbar>
+
+
+<mat-menu #appMenu="matMenu">
+  <a routerLink="/add"><button mat-menu-item> Add article </button></a>
+  <a routerLink="/article"><button mat-menu-item> News created by me </button></a>
+  <a routerLink=""><button mat-menu-item> News Api</button></a>
+</mat-menu>
+<router-outlet></router-outlet>
+
+
+
+
+
+

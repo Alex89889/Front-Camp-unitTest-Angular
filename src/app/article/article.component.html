@@ -1,0 +1,31 @@
+<mat-sidenav-container class="example-container">
+	<p style="padding: 20px">
+		<input type='text' #nameInput >  
+		<a  (click)="filter()"><button mat-button color="primary" >Filter</button></a>
+	</p>
+  
+
+<mat-card class="example-card"  *ngFor="let listNews of news">
+    <mat-card-header>
+      
+      <mat-card-title class="title">{{listNews.headling}}</mat-card-title>
+      <mat-card-subtitle>{{listNews.auhtor}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img-article" src={{listNews.image}} alt="">
+    <mat-card-content>
+      <p>
+        {{listNews.shortDescription}}
+      </p>
+	  <p>
+        Date: {{listNews.date | date:"dd/MM/yyyy"}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="action-buttons">
+     <a routerLink="/edit/{{listNews.id}}"><button mat-button color="primary">Edit</button></a>
+      <button mat-button color="primary" (click)="removeNews(listNews.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+<mat-toolbar color="primary">
+    <div class="eco_copyight">Powered by  <a href="https://newsapi.org" class="eco_color5">NEWS API</a> </div>
+</mat-toolbar>
+</mat-sidenav-container>
